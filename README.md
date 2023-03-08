@@ -9,14 +9,14 @@
     sudo apt install schroot debootstrap
 
     # Make chroot
-    sudo debootstrap --variant=buildd --arch=amd64 bionic /srv/chroot/bionic http://archive.ubuntu.com/ubuntu/
+    sudo debootstrap --variant=buildd --arch=amd64 bionic /srv/chroot/bionic-amd64 http://archive.ubuntu.com/ubuntu/
     ```
 - Write chroot config file `/etc/schroot/chroot.d/bionic-amd64.conf`
     ```conf
     [bionic-amd64]
     description=Ubuntu 18.04 (amd64)
     type=directory
-    directory=/srv/chroot/bionic
+    directory=/srv/chroot/bionic-amd64
     users=[YOUR_USERNAME]
     root-groups=root
     profile=desktop
@@ -42,14 +42,14 @@
     sudo apt install schroot debootstrap qemu-user-static
 
     # Make chroot
-    sudo debootstrap --variant=buildd --arch=arm64 bionic /srv/chroot/bionic http://archive.ubuntu.com/ubuntu/
+    sudo debootstrap --variant=buildd --arch=arm64 bionic /srv/chroot/bionic-arm64 http://archive.ubuntu.com/ubuntu/
     ```
 - Write chroot config file `/etc/schroot/chroot.d/bionic-arm64.conf`
     ```conf
     [bionic-arm64]
     description=Ubuntu 18.04 (arm64)
     type=directory
-    directory=/srv/chroot/bionic
+    directory=/srv/chroot/bionic-arm64
     users=[YOUR_USERNAME]
     root-groups=root
     profile=desktop
