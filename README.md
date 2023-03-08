@@ -94,7 +94,14 @@ TODO
     - [CMake](https://cmake.org/): Make sure cmake is in your `PATH`
     - [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2022)
     - [GStreamer](https://gstreamer.freedesktop.org/download/): Use the "MSVC development installer" and perform a "complete install"
-    - [OpenJDK 11](https://adoptium.net/): Make sure `JAVA_HOME` is set to the directory java is installed in (not the bin, the root directory).
-    - [Python 3.8](https://www.python.org/): Make sure `python` or `python3` command is in your `PATH`
+    - [OpenJDK 11](https://adoptium.net/): Make sure `JAVA_HOME` is set to the directory java is installed in (not the bin, the root directory). Alternatively, you can make sure the desired java is in your `PATH`.
+    - [Apache ANT](https://ant.apache.org/bindownload.cgi): Make sure `ant` is in your path
+    - [Python 3.8](https://www.python.org/): Make sure `python` or `python3` command is in your `PATH`. Make sure the version you want to use is in the path first (shown first by `where.exe python`)
 - Note that the build script requires Windows 10 17063 or later which includes curl and bsdtar
-- 
+- Run the build
+    ```sh
+    cd windows-arm64-pc
+    .\buildopencv.cmd
+    cd build
+    ```
+- Upload the installer
