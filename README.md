@@ -27,7 +27,7 @@
     ```sh
     sed -i 's/bionic main/bionic main universe multiverse/g' /etc/apt/sources.list
     apt update
-    apt install sudo locale git python3 zip
+    apt install sudo locales git python3 zip
     exit
     ```
 - Enter the chroot without sudo `schroot -c bionic-amd64`
@@ -69,12 +69,13 @@
     ```sh
     sed -i 's/bionic main/bionic main universe multiverse/g' /etc/apt/sources.list
     apt update
-    apt install sudo locale git python3 zip
+    apt install sudo locales git python3 zip
     exit
     ```
 - Enter the chroot without sudo `schroot -c bionic-arm64`
 - Run the build
     ```sh
+    alias sudo="sudo -S"
     cd linux-arm64-pc
     ./buildopencv.sh | tee build.log
     cd build
