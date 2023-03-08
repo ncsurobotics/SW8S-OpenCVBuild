@@ -11,7 +11,7 @@
     # Make chroot
     sudo debootstrap --variant=buildd --arch=amd64 bionic /srv/chroot/bionic http://archive.ubuntu.com/ubuntu/
     ```
-- Write chroot config file
+- Write chroot config file `/etc/schroot/chroot.d/bionic-amd64.conf`
     ```conf
     [bionic-amd64]
     description=Ubuntu 18.04 (amd64)
@@ -26,11 +26,8 @@
 - Enter chroot with `schroot -c bionic-amd64`
 - Run the build
     ```sh
-    mkdir build
-    cd build
-    mkdir linux-amd64-pc
     cd linux-amd64-pc
-    ../buildopencv.sh | tee build.log
+    ./buildopencv.sh | tee build.log
     ```
 - Wait for build then collect the artifacts from `build/` subdirectory (deb packages and tarball)
 
@@ -47,7 +44,7 @@
     # Make chroot
     sudo debootstrap --variant=buildd --arch=arm64 bionic /srv/chroot/bionic http://archive.ubuntu.com/ubuntu/
     ```
-- Write chroot config file
+- Write chroot config file `/etc/schroot/chroot.d/bionic-arm64.conf`
     ```conf
     [bionic-arm64]
     description=Ubuntu 18.04 (arm64)
@@ -62,11 +59,8 @@
 - Enter chroot with `schroot -c bionic-arm64`
 - Run the build
     ```sh
-    mkdir build
-    cd build
-    mkdir linux-arm64-pc
     cd linux-arm64-pc
-    ../buildopencv.sh | tee build.log
+    ./buildopencv.sh | tee build.log
     ```
 - Wait for build then collect the artifacts from `build/` subdirectory (deb packages and tarball)
 

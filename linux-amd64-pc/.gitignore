@@ -1,0 +1,4 @@
+build/
+opencv-*.zip
+opencv-*/
+build.log

@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-# NOTE: Install requirements for build before building
-# sudo apt install cmake build-essential openjdk-11-jdk python3 libpython3.$(python3 --version | sed -e 's/Python //g' | cut -d. -f2)-dev python3-numpy ant ffmpeg libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev wget unzip pkg-config libavutil-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
-# Install python2.7 and libpython2.7 if building with python2
-# install cuda and cudnn if building with cuda
-# Install a jdk to build with java (eg default-jdk)
-# NOTE: Cross compiling is not recommended
-# NOTE: Compiling in a chroot for a different architecture using qemu-user-static should work
-
 # Exit on any error
 function exit_trap(){
     ec=$?
@@ -19,12 +11,13 @@ set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap exit_trap EXIT
 
+# Dependencies
+sudo apt install -y cmake build-essential openjdk-11-jdk python3 libpython3.$(python3 --version | sed -e 's/Python //g' | cut -d. -f2)-dev python3-numpy ant ffmpeg libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev wget unzip pkg-config libavutil-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev default-jdk
 
 # Configuration
-BUILD_THREADS=4                 # Use 1 on jetson nano or rpi
+BUILD_THREADS=4
 CC=$(which gcc)                 # Use gcc-7 on jetson nano
 CXX=$(which g++)                # Use g++-7 on jetson nano
-VERSION=4.6.0
 CUDA=NO
 CUDA_ARCH_BIN=5.3               # 5.3 for jetson nano0
 CUDNN=NO
@@ -32,6 +25,9 @@ PYTHON3=YES
 PYTHON2=NO
 JAVA=YES
 DEB_PKG=YES
+
+# Shared configuration
+source ../config.sh
 
 # Download and unzip sources
 
