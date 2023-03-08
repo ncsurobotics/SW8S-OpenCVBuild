@@ -12,7 +12,7 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap exit_trap EXIT
 
 # Dependencies
-sudo apt install -y cmake build-essential openjdk-11-jdk python3 libpython3.$(python3 --version | sed -e 's/Python //g' | cut -d. -f2)-dev python3-numpy ant ffmpeg libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev wget unzip pkg-config libavutil-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev default-jdk
+sudo apt install -y cmake build-essential openjdk-11-jdk python3 libpython3.7-dev python3-numpy ant ffmpeg libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev wget unzip pkg-config libavutil-dev libavcodec-dev libavformat-dev libswscale-dev libavresample-dev default-jdk
 
 # Configuration
 BUILD_THREADS=4
