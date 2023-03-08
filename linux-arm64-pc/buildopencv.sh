@@ -39,6 +39,9 @@ if [ ! -d opencv-${VERSION}/ ];then
 fi
 
 # Build
+if [[ ! -v JAVA_HOME ]]; then
+    JAVA_HOME=$(dirname $(dirname $(realpath $(which java))))
+fi
 rm -rf build/
 mkdir -p build
 cd build
