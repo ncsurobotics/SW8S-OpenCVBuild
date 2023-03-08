@@ -18,4 +18,6 @@ if not exist opencv-%VERSION%\ (
     echo https://github.com/opencv/opencv/archive/%VERSION%.zip
     curl -L --output opencv.zip https://github.com/opencv/opencv/archive/%VERSION%.zip
     curl -L --output opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/%VERSION%.zip
+    tar -xf opencv.zip
+    tar -xf opencv_contrib.zip
 ) 

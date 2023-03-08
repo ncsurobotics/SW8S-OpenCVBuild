@@ -96,4 +96,5 @@ TODO
     - [GStreamer](https://gstreamer.freedesktop.org/download/): Use the "MSVC development installer" and perform a "complete install"
     - [OpenJDK](https://adoptium.net/): Make sure `JAVA_HOME` is set and/or the desired `java` / `javac` commands are first in `PATH`
     - [Python3](https://www.python.org/): Make sure `python` or `python3` command is in your `PATH`
+- Note that the build script requires Windows 10 17063 or later which includes curl and bsdtar
 - 
