@@ -27,7 +27,7 @@
     ```sh
     sed -i 's/bionic main/bionic main universe multiverse/g' /etc/apt/sources.list
     apt update
-    apt install sudo locale git python3
+    apt install sudo locale git python3 zip
     exit
     ```
 - Enter the chroot without sudo `schroot -c bionic-amd64`
@@ -35,8 +35,10 @@
     ```sh
     cd linux-amd64-pc
     ./buildopencv.sh | tee build.log
+    cd build
+    zip -0 linux-amd64-pc.zip OpenCV-*.deb OpenCV-*.tar.gz OpenCV-*.sh
     ```
-- Wait for build then collect the artifacts from `build/` subdirectory (deb packages and tarball)
+- Upload build artifacts zip
 
 
 

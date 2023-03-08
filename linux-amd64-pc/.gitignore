@@ -1,4 +1,5 @@
 build/
-opencv-*.zip
+opencv*.zip
 opencv-*/
+opencv_contrib*/
 build.log
