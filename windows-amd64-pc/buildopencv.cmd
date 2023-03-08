@@ -50,10 +50,11 @@ cmake -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%VERSION%/modules ^
     -D BUILD_TESTS=OFF ^
     -D BUILD_PERF_TESTS=OFF ^
     -D OPENCV_VCSVERSION=$VERSION ^
-    -D CPACK_PACKAGING_INSTALL_PREFIX=C:\opencv-%VERSION%\ ^
+    -DINSTALL_CREATE_DISTRIB=ON ^
+    -DCMAKE_INSTALL_PREFIX=c:/opencv-%VERSION%/ ^
     ../opencv-%VERSION%
 cmake --build . --config Release
 
 
 :: Package
-cmake --build . --target package
+cmake --build . --config Release --target package
