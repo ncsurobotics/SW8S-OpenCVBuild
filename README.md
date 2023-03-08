@@ -38,7 +38,7 @@
     cd build
     zip -0 linux-amd64-pc.zip OpenCV-*.deb OpenCV-*.tar.gz OpenCV-*.sh
     ```
-- Upload build artifacts zip
+- Upload the sh file
 
 
 
@@ -77,10 +77,8 @@
     ```sh
     cd linux-arm64-pc
     ./buildopencv.sh | tee build.log
-    cd build
-    zip -0 linux-arm64-pc.zip OpenCV-*.deb OpenCV-*.tar.gz OpenCV-*.sh
     ```
-- Upload build artifacts zip
+- Upload the sh file
 
 
 ## linux-arm64-jetsonnano

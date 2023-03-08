@@ -24,7 +24,7 @@ CUDNN=NO
 PYTHON3=YES
 PYTHON2=NO
 JAVA=YES
-DEB_PKG=YES
+DEB_PKG=NO
 
 # Shared configuration
 source ../config.sh
