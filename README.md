@@ -94,7 +94,8 @@ TODO
     - [GStreamer](https://gstreamer.freedesktop.org/download/): Use the "MSVC development installer" and perform a "complete install"
     - [OpenJDK 11](https://adoptium.net/): Make sure `JAVA_HOME` is set to the directory java is installed in (not the bin, the root directory). Alternatively, you can make sure the desired java is in your `PATH`.
     - [Apache ANT](https://ant.apache.org/bindownload.cgi): Make sure `ant` is in your path
-    - [Python 3.8](https://www.python.org/): Make sure `python` or `python3` command is in your `PATH`. Make sure the version you want to use is in the path first (shown first by `where.exe python`)
+    - [Python 3.8](https://www.python.org/): Make sure the desired python is the first item in your path and is named `python3` not `python` (just rename the exe file).
+    - NumPy (`python3 -m pip install numpy`)
 - Note that the build script requires Windows 10 17063 or later which includes curl and bsdtar
 - Run the build
     ```sh
