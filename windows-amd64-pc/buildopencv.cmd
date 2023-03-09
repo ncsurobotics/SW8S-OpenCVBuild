@@ -53,6 +53,7 @@ cmake -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%VERSION%/modules ^
     -DCMAKE_INSTALL_PREFIX=c:/opencv-%VERSION%/ ^
     -DCPACK_NSIS_INSTALL_ROOT=c:\\opencv-%VERSION% ^
     -DCPACK_PACKAGE_INSTALL_DIRECTORY= ^
+    -DCPACK_NSIS_PACKAGE_NAME="OpenCV %VERSION%" ^
     -DPYTHON_DEFAULT_AVAILABLE=ON ^
     -DBUILD_opencv_world=OFF ^
     ../opencv-%VERSION%
