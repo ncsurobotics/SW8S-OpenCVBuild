@@ -38,8 +38,6 @@ cmake -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%VERSION%/modules ^
     -D ENABLE_FAST_MATH=ON ^
     -D CUDA_FAST_MATH=%CUDA% ^
     -D WITH_CUBLAS=%CUDA% ^
-    -D WITH_LIBV4L=ON ^
-    -D WITH_V4L=ON ^
     -D WITH_GSTREAMER=ON ^
     -D WITH_GSTREAMER_0_10=OFF ^
     -D WITH_FFMPEG=ON ^
@@ -47,13 +45,21 @@ cmake -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-%VERSION%/modules ^
     -D WITH_OPENGL=OFF ^
     -D BUILD_opencv_python2=%PYTHON2% ^
     -D BUILD_opencv_python3=%PYTHON3% ^
+    -D OPENCV_PYTHON_INSTALL_PATH=lib/python3.8/site-packages ^
     -D BUILD_TESTS=OFF ^
     -D BUILD_PERF_TESTS=OFF ^
-    -D OPENCV_VCSVERSION=$VERSION ^
-    -D CPACK_PACKAGING_INSTALL_PREFIX=C:\opencv-%VERSION%\ ^
+    -D OPENCV_VCSVERSION=%VERSION% ^
+    -DINSTALL_CREATE_DISTRIB=ON ^
+    -DCMAKE_INSTALL_PREFIX=c:/opencv-%VERSION%/ ^
+    -DCPACK_NSIS_INSTALL_ROOT=c:\\opencv-%VERSION% ^
+    -DCPACK_PACKAGE_INSTALL_DIRECTORY= ^
+    -DCPACK_NSIS_PACKAGE_NAME="OpenCV %VERSION%" ^
+    -DPYTHON_DEFAULT_AVAILABLE=ON ^
+    -DBUILD_opencv_world=OFF ^
     ../opencv-%VERSION%
+
 cmake --build . --config Release
 
 
 :: Package
-cmake --build . --target package
+cmake --build . --config Release --target package
