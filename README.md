@@ -83,7 +83,45 @@
 
 ## linux-arm64-jetsonnano
 
-TODO
+*Note: you can build natively on a Jetson Nano. However, you may need a swapfile on the SD card. Also, if building on the jetson nano, change BUILD_THREADS to 1 in the build script.*
+
+- Build on a Linux system (assumed to be `amd64` / `x86_64`)
+- Setup a chroot using an Ubuntu Focal Jetson nano image [link](https://github.com/Qengineering/Jetson-Nano-Ubuntu-20-image)
+    ```sh
+    # Use different package manager if not debian based system
+    sudo apt install schroot qemu-user-static
+
+    # Mount image
+    sudo losetup -f -P --show ./jetson-image.img
+    sudo mkdir /srv/chroot/jetson-image
+    sudo mount /dev/loop# /srv/chroot/jetson-image
+    ```
+- Write chroot config file `/etc/schroot/chroot.d/focal-arm64.conf`
+    ```conf
+    [jetson-image]
+    description=Jetson OS Image
+    type=directory
+    directory=/srv/chroot/jetson-image
+    users=[YOUR_USERNAME]
+    root-groups=root
+    profile=desktop
+    personality=linux
+    ```
+- On more recent Ubuntu / Debian systems, `yescrypt` is used, but this is not supported in older systems (focal included). Thus change `/etc/pam.d/common-password` by modifying `yescrypt` to be `sha512`. Failing to do so will prevent `sudo` from working in the chroot environment.
+- Enter chroot with `sudo schroot -c jetson-image` and run
+    ```sh
+    sed -i 's/focal main/focal main universe multiverse/g' /etc/apt/sources.list
+    apt update
+    apt install sudo locales git python3 zip
+    exit
+    ```
+- Enter the chroot without sudo `schroot -c jetson-image`
+- Run the build
+    ```sh
+    cd linux-arm64-jetsonnano
+    ./buildopencv.sh | tee build.log
+    ```
+- Upload the sh file
 
 
 ## windows-amd64-pc
